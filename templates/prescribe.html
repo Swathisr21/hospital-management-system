@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="container mt-4">
+    <h3>Add Prescription for {{ patient.name }}</h3>
+
+    <form method="POST" class="card p-4 shadow">
+        <label>Prescription Details:</label>
+        <textarea name="details" class="form-control" rows="5" required></textarea>
+
+        <button class="btn btn-primary mt-3">Save Prescription</button>
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="container mt-5">
+
+    <h2 class="text-center text-primary">Doctor Schedule</h2>
+
+    <form method="POST" class="card p-4 mt-4 shadow">
+
+        <label>Date</label>
+        <input type="date" name="date" class="form-control" required>
+
+        <label class="mt-3">Start Time</label>
+        <input type="time" name="start" class="form-control" required>
+
+        <label class="mt-3">End Time</label>
+        <input type="time" name="end" class="form-control" required>
+
+        <button class="btn btn-primary mt-4 btn-block">Save Schedule</button>
+    </form>
+
+    <h4 class="mt-5">Your Saved Schedules</h4>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+
+        {% for s in schedules %}
+        <tr>
+            <td>{{ s.date }}</td>
+            <td>{{ s.start_time }}</td>
+            <td>{{ s.end_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="container mt-4">
+    <h3>Prescription History for {{ patient.name }}</h3>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Date</th>
+            <th>Prescription</th>
+        </tr>
+
+        {% for p in data %}
+        <tr>
+            <td>{{ p.date }}</td>
+            <td>{{ p.details }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

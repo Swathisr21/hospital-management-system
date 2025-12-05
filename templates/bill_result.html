@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="container mt-4">
+    <h2>Final Bill</h2>
+
+    <div class="card p-4 shadow">
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Disease:</strong> {{ disease }}</p>
+        <p><strong>Date:</strong> {{ date }}</p>
+
+        <p><strong>Doctor Fee:</strong> ₹{{ doctor_fee }}</p>
+        <p><strong>Treatment Fee:</strong> ₹{{ treatment_fee }}</p>
+
+        <h3>Total: ₹{{ total }}</h3>
+    </div>
+</div>
+
+{% endblock %}

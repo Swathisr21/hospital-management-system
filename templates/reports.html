@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="container mt-4">
+    <h3>Reports for {{ patient.name }}</h3>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Date</th>
+            <th>Report File</th>
+        </tr>
+
+        {% for r in data %}
+        <tr>
+            <td>{{ r.date }}</td>
+            <td>
+                <a href="/static/reports/{{ r.filename }}" target="_blank"
+                   class="btn btn-info btn-sm">View</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

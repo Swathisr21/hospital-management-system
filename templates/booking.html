@@ -1,26 +1,17 @@
 {% extends 'base.html' %}
-
-{% block title %}
-Booking
-{% endblock title %}
-
+{% block title %}Booking{% endblock title %}
 {% block body %}
 {% with messages=get_flashed_messages(with_categories=true) %}
-{% if messages %}
-{% for category, message in messages %}
-
-<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
-    {{message}}
-
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
-
-  {% endfor %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+    {% endfor %}
   {% endif %}
-  {% endwith %}
+{% endwith %}
+
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -36,7 +27,7 @@ Booking
       <th scope="col">PHONE NUMBER</th>
       <th scope="col">EDIT</th>
       <th scope="col">DELETE</th>
-
+      <th scope="col">BILL</th>
     </tr>
   </thead>
   <tbody>
@@ -52,13 +43,11 @@ Booking
       <td>{{post.time}}</td>
       <td>{{post.dept}}</td>
       <td>{{post.number}}</td>
-    <td><a href="/edit/{{post.pid}}"><button class="btn btn-success">Edit </button> </a> </td>
-    <td><a href="/delete/{{post.pid}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-success">Delete </button> </a> </td>
+      <td><a href="/edit/{{post.pid}}"><button class="btn btn-success">Edit</button></a></td>
+      <td><a href="/delete/{{post.pid}}"><button onclick="return confirm('Are you sure to Delete data?');" class="btn btn-danger">Delete</button></a></td>
+      <td><a href="/bill/{{ post.pid }}" class="btn btn-info">Bill</a></td>
     </tr>
-{% endfor %}
-  
+  {% endfor %}
   </tbody>
 </table>
-
-
 {% endblock body %}

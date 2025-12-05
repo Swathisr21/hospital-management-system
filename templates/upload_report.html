@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style>
+    .upload-container {
+        max-width: 700px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-left: 6px solid #0d6efd;
+    }
+
+    h2 {
+        color: #0d6efd;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .btn-upload {
+        background-color: #007bff;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        color: white;
+    }
+
+    .btn-upload:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="upload-container">
+    <h2>Upload Medical Report</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Select Report File</label>
+        <input type="file" name="report" class="form-control" required>
+
+        <button class="btn-upload mt-4">
+            Upload Report
+        </button>
+    </form>
+</div>
+
+{% endblock %}

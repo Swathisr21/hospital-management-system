@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">Patient Bill</h2>
+
+    <div class="card shadow p-4" style="max-width: 700px; margin: auto; border-radius: 10px;">
+
+        <h4 class="mb-3">Patient Details</h4>
+
+        <p><strong>Patient Name:</strong> {{ patient.name }}</p>
+        <p><strong>Disease:</strong> {{ patient.disease }}</p>
+        <p><strong>Date:</strong> {{ patient.date }}</p>
+
+        <h4 class="mt-4 mb-3">Charges</h4>
+        <p><strong>Doctor Fee:</strong> ₹{{ doctor_fee }}</p>
+        <p><strong>Treatment Fee:</strong> ₹{{ treatment_fee }}</p>
+
+        <hr>
+        <h3><strong>Total:</strong> ₹{{ total }}</h3>
+
+        <form method="POST" action="/bill-result">
+            <input type="hidden" name="name" value="{{ patient.name }}">
+            <input type="hidden" name="disease" value="{{ patient.disease }}">
+            <input type="hidden" name="date" value="{{ patient.date }}">
+            <input type="hidden" name="doctor_fee" value="{{ doctor_fee }}">
+            <input type="hidden" name="treatment_fee" value="{{ treatment_fee }}">
+
+            <button class="btn btn-success btn-block mt-3">Create a Bill</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
